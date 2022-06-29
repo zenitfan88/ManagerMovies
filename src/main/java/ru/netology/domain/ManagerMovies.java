@@ -34,6 +34,9 @@ public class ManagerMovies {
         } else {
             resultLength = 10;
         }
+        if (items.length <= resultLength) {
+            resultLength = items.length;
+        }
         PurchaseItem[] findLast = new PurchaseItem[resultLength];
         for (int i = 0; i < findLast.length; i++) {
             int index = findLast.length - i - 1;

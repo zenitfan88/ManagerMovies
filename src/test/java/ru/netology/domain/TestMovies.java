@@ -37,7 +37,7 @@ public class TestMovies {
     }
 
     @Test
-    public void testMoviesFindLastSeven() {
+    public void testMoviesFindLastOverLimit() {
         ManagerMovies movies = new ManagerMovies(7);
         movies.save(first);
         movies.save(second);
@@ -55,6 +55,43 @@ public class TestMovies {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void testMoviesFindLastLessLimit() {
+        ManagerMovies movies = new ManagerMovies(20);
+        movies.save(first);
+        movies.save(second);
+        movies.save(third);
+        movies.save(fourth);
+        movies.save(fifth);
+        movies.save(sixth);
+        movies.save(seventh);
+        movies.save(eighth);
+        movies.save(ninth);
+        movies.save(tenth);
+        movies.save(eleventh);
+        PurchaseItem[] actual = movies.findLast();
+        PurchaseItem[] expected = {eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testMoviesFindLastEqualLimit() {
+        ManagerMovies movies = new ManagerMovies(11);
+        movies.save(first);
+        movies.save(second);
+        movies.save(third);
+        movies.save(fourth);
+        movies.save(fifth);
+        movies.save(sixth);
+        movies.save(seventh);
+        movies.save(eighth);
+        movies.save(ninth);
+        movies.save(tenth);
+        movies.save(eleventh);
+        PurchaseItem[] actual = movies.findLast();
+        PurchaseItem[] expected = {eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        Assertions.assertArrayEquals(expected, actual);
+    }
     @Test
     public void testMoviesFindAll() {
         ManagerMovies movies = new ManagerMovies();
