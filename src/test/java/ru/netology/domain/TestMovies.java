@@ -19,7 +19,7 @@ public class TestMovies {
 
     @Test
     public void testMoviesFindLastDefault() {
-        ManagerMovies movies = new ManagerMovies(0);
+        ManagerMovies movies = new ManagerMovies();
         movies.save(first);
         movies.save(second);
         movies.save(third);
@@ -76,7 +76,7 @@ public class TestMovies {
 
     @Test
     public void testMoviesFindLastEqualLimit() {
-        ManagerMovies movies = new ManagerMovies(11);
+        ManagerMovies movies = new ManagerMovies(10);
         movies.save(first);
         movies.save(second);
         movies.save(third);
@@ -89,7 +89,7 @@ public class TestMovies {
         movies.save(tenth);
         movies.save(eleventh);
         PurchaseItem[] actual = movies.findLast();
-        PurchaseItem[] expected = {eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        PurchaseItem[] expected = {tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
         Assertions.assertArrayEquals(expected, actual);
     }
     @Test

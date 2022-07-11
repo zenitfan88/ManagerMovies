@@ -1,7 +1,10 @@
 package ru.netology.domain;
 
 public class ManagerMovies {
-    private int amountMovies;
+    private int limitMovies;
+
+    private int defaultMovies = 10;
+
     private PurchaseItem[] items = new PurchaseItem[0];
 
     public void save(PurchaseItem item) {
@@ -19,25 +22,22 @@ public class ManagerMovies {
         return findAll;
     }
 
+
     public ManagerMovies() {
     }
 
-    public ManagerMovies(int amountMovies) {
-        this.amountMovies = amountMovies;
+    public ManagerMovies(int limitMovies) {
+        this.limitMovies = limitMovies;
     }
 
     public PurchaseItem[] findLast() {
-        this.amountMovies = amountMovies;
-        int resultLength;
-        if (amountMovies > 0) {
-            resultLength = amountMovies;
-        } else {
-            resultLength = 10;
+        if (limitMovies > 0) {
+            defaultMovies = limitMovies;
         }
-        if (items.length <= resultLength) {
-            resultLength = items.length;
+        if (items.length <= limitMovies) {
+            defaultMovies = items.length;
         }
-        PurchaseItem[] findLast = new PurchaseItem[resultLength];
+        PurchaseItem[] findLast = new PurchaseItem[defaultMovies];
         for (int i = 0; i < findLast.length; i++) {
             int index = findLast.length - i - 1;
             findLast[i] = items[index];
