@@ -31,13 +31,14 @@ public class ManagerMovies {
     }
 
     public PurchaseItem[] findLast() {
+        int newDefaultMovies=defaultMovies;
         if (limitMovies > 0) {
-            defaultMovies = limitMovies;
+            newDefaultMovies = limitMovies;
         }
         if (items.length <= limitMovies) {
-            defaultMovies = items.length;
+            newDefaultMovies = items.length;
         }
-        PurchaseItem[] findLast = new PurchaseItem[defaultMovies];
+        PurchaseItem[] findLast = new PurchaseItem[newDefaultMovies];
         for (int i = 0; i < findLast.length; i++) {
             int index = findLast.length - i - 1;
             findLast[i] = items[index];
