@@ -22,7 +22,6 @@ public class ManagerMovies {
         return findAll;
     }
 
-
     public ManagerMovies() {
     }
 
@@ -31,7 +30,7 @@ public class ManagerMovies {
     }
 
     public PurchaseItem[] findLast() {
-        int newDefaultMovies=defaultMovies;
+        int newDefaultMovies = defaultMovies;
         if (limitMovies > 0) {
             newDefaultMovies = limitMovies;
         }

@@ -92,6 +92,7 @@ public class TestMovies {
         PurchaseItem[] expected = {tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void testMoviesFindAll() {
         ManagerMovies movies = new ManagerMovies();
